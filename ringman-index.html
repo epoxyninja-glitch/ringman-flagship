@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ring Man Marketing — Fight Night at the Drive-In | West Palm Beach</title>
+<meta name="description" content="Ring Man Marketing builds finished websites, campaigns, and local visibility for South Florida trades. Your business. Main event. Call or text 561-294-2677.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0B0E1A;
+  --asphalt:#14161F;
+  --beam:#FFF3D6;
+  --gold:#E8B44C;
+  --red:#C4342B;
+  --canvas:#F2EAD8;
+  --ink:#1A1510;
+  --smoke:#8B8FA3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--night);
+  color:var(--canvas);
+  font-family:'Barlow',sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,.slab{font-family:'Alfa Slab One',serif;font-weight:400;line-height:1.1}
+.tickettype{font-family:'Courier Prime',monospace}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 22px;
+  background:linear-gradient(to bottom,rgba(11,14,26,.95),rgba(11,14,26,0));
+}
+.navmark{font-family:'Alfa Slab One',serif;color:var(--gold);font-size:1.05rem;letter-spacing:.04em;text-decoration:none}
+.navmark span{color:var(--canvas)}
+.navcall{
+  font-family:'Courier Prime',monospace;font-weight:700;
+  color:var(--night);background:var(--gold);
+  padding:8px 16px;border-radius:3px;text-decoration:none;font-size:.95rem;
+  border:2px solid var(--gold);
+  transition:background .15s,color .15s;
+}
+.navcall:hover{background:transparent;color:var(--gold)}
+
+/* ============ HERO: THE LOT ============ */
+.lot{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:110px 20px 70px;
+  background:
+    radial-gradient(ellipse 120% 55% at 50% 108%, #1E2233 0%, transparent 60%),
+    var(--night);
+  overflow:hidden;
+}
+/* stars */
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars i{position:absolute;width:2px;height:2px;background:var(--beam);border-radius:50%;opacity:.5;animation:twinkle 4s infinite}
+@keyframes twinkle{0%,100%{opacity:.18}50%{opacity:.65}}
+/* projector beam */
+.beam{
+  position:absolute;bottom:16%;left:50%;
+  width:0;height:0;
+  border-left:34vw solid transparent;
+  border-right:34vw solid transparent;
+  border-bottom:0;
+  border-top:52vh solid rgba(255,243,214,.055);
+  transform:translateX(-50%) scaleY(-1);
+  filter:blur(2px);
+  animation:flicker 6s infinite;
+  pointer-events:none;
+}
+@keyframes flicker{
+  0%,100%{opacity:1}
+  47%{opacity:.85}
+  49%{opacity:1}
+  73%{opacity:.8}
+  74%{opacity:1}
+}
+/* the big screen */
+.bigscreen{
+  position:relative;z-index:2;
+  width:min(760px,92vw);
+  background:linear-gradient(178deg,#FBF6E8 0%,var(--canvas) 55%,#E4DBC4 100%);
+  border:10px solid #06070D;
+  border-radius:4px;
+  box-shadow:0 0 90px rgba(255,243,214,.13),0 24px 60px rgba(0,0,0,.6);
+  padding:clamp(28px,6vw,58px) clamp(20px,5vw,48px);
+  text-align:center;
+  color:var(--ink);
+}
+.bigscreen .presents{
+  font-family:'Courier Prime',monospace;font-size:.85rem;letter-spacing:.32em;
+  text-transform:uppercase;color:#7A6F58;margin-bottom:14px;
+}
+.bigscreen h1{
+  font-size:clamp(2rem,7vw,4.2rem);
+  color:var(--red);
+  text-shadow:2px 2px 0 rgba(26,21,16,.12);
+}
+.bigscreen .sub{
+  font-family:'Alfa Slab One',serif;
+  font-size:clamp(1.05rem,3.4vw,1.8rem);
+  color:var(--ink);
+  margin-top:8px;letter-spacing:.02em;
+}
+.bigscreen .tag{
+  margin-top:20px;font-size:1rem;color:#5A5142;font-weight:500;
+}
+/* screen legs */
+.legs{position:relative;z-index:1;display:flex;gap:min(520px,64vw);margin-top:-4px}
+.legs i{width:10px;height:70px;background:#06070D;border-radius:0 0 3px 3px}
+
+/* bell button */
+.bellrow{position:relative;z-index:2;margin-top:44px;text-align:center}
+.bellbtn{
+  font-family:'Alfa Slab One',serif;font-size:1.15rem;
+  color:var(--night);background:var(--gold);
+  border:none;border-radius:4px;
+  padding:16px 34px;cursor:pointer;letter-spacing:.03em;
+  box-shadow:0 6px 0 #9A7524,0 14px 30px rgba(0,0,0,.5);
+  transition:transform .08s,box-shadow .08s;
+}
+.bellbtn:active{transform:translateY(5px);box-shadow:0 1px 0 #9A7524,0 6px 16px rgba(0,0,0,.5)}
+.bellbtn:focus-visible{outline:3px solid var(--beam);outline-offset:3px}
+.bellnote{margin-top:12px;font-family:'Courier Prime',monospace;font-size:.85rem;color:var(--smoke)}
+
+/* marquee strip */
+.marquee{
+  background:var(--red);
+  color:var(--canvas);
+  font-family:'Courier Prime',monospace;font-weight:700;
+  padding:10px 0;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;
+  white-space:nowrap;overflow:hidden;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);
+}
+.marquee div{display:inline-block;padding-left:100%;animation:crawl 26s linear infinite}
+@keyframes crawl{to{transform:translateX(-100%)}}
+
+/* ============ THE CARD: PULL-DOWN SCREENS ============ */
+.card{
+  background:
+    linear-gradient(to bottom, var(--night), var(--asphalt) 12%);
+  padding:80px 20px 90px;
+}
+.cardhead{text-align:center;max-width:720px;margin:0 auto 18px}
+.cardhead .eyebrow{
+  font-family:'Courier Prime',monospace;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);font-size:.85rem;
+}
+.cardhead h2{font-size:clamp(1.8rem,5vw,2.9rem);color:var(--canvas);margin-top:10px}
+.cardhead p{color:var(--smoke);margin-top:14px}
+.pullhint{
+  text-align:center;font-family:'Courier Prime',monospace;font-size:.85rem;
+  color:var(--gold);margin:22px 0 44px;letter-spacing:.08em;
+}
+
+.rounds{
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:56px 34px;
+  align-items:start;
+}
+.round{position:relative}
+/* roller housing */
+.roller{
+  height:22px;background:linear-gradient(#3A3D4C,#1C1E2A 60%,#3A3D4C);
+  border-radius:11px;position:relative;z-index:5;
+  box-shadow:0 3px 8px rgba(0,0,0,.5);
+  display:flex;align-items:center;justify-content:space-between;padding:0 10px;
+}
+.roller b{
+  font-family:'Courier Prime',monospace;font-size:.72rem;letter-spacing:.2em;
+  color:var(--gold);text-transform:uppercase;font-weight:700;
+}
+.roller i{width:8px;height:8px;border-radius:50%;background:#0A0B12}
+/* the canvas screen — pulled down by spring */
+.screenwrap{position:relative;overflow:visible}
+.canvasscreen{
+  transform-origin:top center;
+  transform:scaleY(0.04);
+  background:linear-gradient(180deg,#FBF6E8,var(--canvas) 40%,#E7DEC7);
+  border:0 solid #06070D;border-width:0 6px 8px;
+  border-radius:0 0 4px 4px;
+  box-shadow:0 18px 40px rgba(0,0,0,.55);
+  color:var(--ink);
+  will-change:transform;
+}
+.screeninner{padding:20px 20px 24px;opacity:0;transition:opacity .35s .05s}
+.round.open .screeninner{opacity:1}
+/* video slot */
+.slot{
+  position:relative;aspect-ratio:16/9;border-radius:3px;overflow:hidden;
+  background:#0E1018;border:3px solid var(--ink);margin-bottom:16px;
+}
+.slot video{width:100%;height:100%;object-fit:cover;display:block}
+.slot .poster{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(232,180,76,.16), transparent 60%),
+    linear-gradient(160deg,#161927,#0E1018);
+  color:var(--beam);text-align:center;padding:12px;
+}
+.slot .poster .slab{font-size:1.05rem;color:var(--gold)}
+.slot .poster small{font-family:'Courier Prime',monospace;font-size:.72rem;color:var(--smoke);letter-spacing:.1em}
+.screeninner h3{font-size:1.25rem;color:var(--red)}
+.screeninner .rnum{
+  font-family:'Courier Prime',monospace;font-size:.75rem;letter-spacing:.25em;
+  color:#7A6F58;text-transform:uppercase;
+}
+.screeninner p{font-size:.95rem;color:#3E382E;margin-top:8px}
+/* pull cord */
+.cord{
+  position:absolute;left:50%;transform:translateX(-50%);
+  top:22px;
+  width:2px;background:#C9BFa6;
+  height:56px;z-index:6;cursor:pointer;border:none;padding:0;
+  transition:height .18s;
+}
+.cord::after{
+  content:"";position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);border:3px solid #9A7524;
+  box-shadow:0 3px 8px rgba(0,0,0,.5);
+}
+.cord:hover{height:64px}
+.cord:focus-visible{outline:2px solid var(--beam);outline-offset:4px}
+.round.open .cord{display:none}
+.cordlabel{
+  position:absolute;top:86px;left:50%;transform:translateX(-50%);
+  font-family:'Courier Prime',monospace;font-size:.7rem;color:var(--smoke);
+  letter-spacing:.14em;white-space:nowrap;pointer-events:none;
+}
+.round.open .cordlabel{display:none}
+
+/* ============ MAIN EVENTS ============ */
+.events{background:var(--night);padding:80px 20px}
+.events .cardhead h2{color:var(--gold)}
+.bouts{max-width:900px;margin:44px auto 0;display:grid;gap:16px}
+.bout{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  background:linear-gradient(90deg,rgba(232,180,76,.06),transparent 40%);
+  border:1px solid #262A3C;border-left:4px solid var(--gold);
+  padding:18px 20px;border-radius:3px;
+  text-decoration:none;color:var(--canvas);
+  transition:border-color .15s,background .15s;
+}
+.bout:hover{border-color:var(--gold);background:rgba(232,180,76,.08)}
+.bout .name{font-family:'Alfa Slab One',serif;font-size:1.02rem}
+.bout .trade{font-family:'Courier Prime',monospace;font-size:.78rem;color:var(--smoke);letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+.bout .result{
+  font-family:'Courier Prime',monospace;font-weight:700;font-size:.8rem;
+  color:var(--gold);white-space:nowrap;letter-spacing:.1em;
+}
+.bout.next{border-left-color:var(--red);border-style:dashed}
+.bout.next .result{color:var(--red)}
+
+/* ============ PROMOTER ============ */
+.promoter{
+  background:var(--asphalt);padding:80px 20px;
+}
+.promoter .inner{max-width:680px;margin:0 auto;text-align:center}
+.promoter h2{color:var(--canvas);font-size:clamp(1.6rem,4.5vw,2.4rem)}
+.promoter p{color:var(--smoke);margin-top:18px}
+.promoter .creed{
+  margin-top:28px;font-family:'Alfa Slab One',serif;color:var(--gold);
+  font-size:1.15rem;line-height:1.5;
+}
+
+/* ============ TICKET CTA ============ */
+.ticket{
+  background:var(--night);padding:90px 20px 100px;text-align:center;
+}
+.stub{
+  display:inline-block;position:relative;
+  background:var(--canvas);color:var(--ink);
+  padding:34px 44px;border-radius:6px;
+  box-shadow:0 20px 50px rgba(0,0,0,.55);
+  max-width:92vw;
+}
+.stub::before,.stub::after{
+  content:"";position:absolute;top:50%;width:26px;height:26px;border-radius:50%;
+  background:var(--night);transform:translateY(-50%);
+}
+.stub::before{left:-13px}
+.stub::after{right:-13px}
+.stub .admit{
+  font-family:'Courier Prime',monospace;letter-spacing:.4em;font-size:.8rem;
+  color:var(--red);text-transform:uppercase;font-weight:700;
+}
+.stub h2{font-size:clamp(1.5rem,4.5vw,2.2rem);color:var(--ink);margin-top:10px}
+.stub .phone{
+  display:inline-block;margin-top:20px;
+  font-family:'Alfa Slab One',serif;font-size:clamp(1.3rem,5vw,1.9rem);
+  color:var(--canvas);background:var(--red);
+  padding:14px 30px;border-radius:4px;text-decoration:none;
+  box-shadow:0 5px 0 #8A241D;
+  transition:transform .08s,box-shadow .08s;
+}
+.stub .phone:active{transform:translateY(4px);box-shadow:0 1px 0 #8A241D}
+.stub .or{margin-top:16px;font-family:'Courier Prime',monospace;font-size:.85rem;color:#6E6350}
+.stub .sms{color:var(--red);font-weight:700;text-decoration:none}
+.stub .fine{margin-top:18px;font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.14em;color:#8A8170;text-transform:uppercase}
+
+footer{
+  background:#06070D;padding:28px 20px;text-align:center;
+  font-family:'Courier Prime',monospace;font-size:.78rem;color:var(--smoke);
+}
+footer a{color:var(--gold);text-decoration:none}
+
+@media (max-width:640px){
+  .rounds{gap:48px 0}
+  .legs{gap:56vw}
+}
+@media (prefers-reduced-motion:reduce){
+  .stars i,.beam,.marquee div{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="navmark" href="#top">RING MAN <span>MARKETING</span></a>
+  <a class="navcall" href="sms:5612942677?&body=RING%20MAN%20%E2%80%94%20get%20me%20on%20the%20card">TEXT RING MAN</a>
+</nav>
+
+<!-- ============ THE LOT ============ -->
+<header class="lot" id="top">
+  <div class="stars" id="stars"></div>
+  <div class="beam"></div>
+  <div class="bigscreen">
+    <div class="presents">Ring Man Marketing presents</div>
+    <h1>FIGHT NIGHT<br>AT THE DRIVE-IN</h1>
+    <div class="sub">YOUR BUSINESS. MAIN EVENT.</div>
+    <p class="tag">Finished websites, real campaigns, and local visibility for South Florida trades — built before you finish your coffee.</p>
+  </div>
+  <div class="legs"><i></i><i></i></div>
+  <div class="bellrow">
+    <button class="bellbtn" id="bell" aria-label="Ring the bell">🔔 RING THE BELL</button>
+    <div class="bellnote">go ahead. everybody does it.</div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div>NOW SHOWING: WESTOPROOFLEAKS561.COM &nbsp;★&nbsp; BOKDESIGNBUILD.COM &nbsp;★&nbsp; MIAMI MIDNIGHT MATTRESS &nbsp;★&nbsp; EPOXY561 &nbsp;★&nbsp; PALM BEACH BACKYARD KITCHENS &nbsp;★&nbsp; ONE NIGHT BUILDS · REAL PHONE CALLS · NO REFUNDS ON GREATNESS &nbsp;★&nbsp; </div>
+</div>
+
+<!-- ============ THE FIGHT CARD ============ -->
+<section class="card" id="card">
+  <div class="cardhead">
+    <div class="eyebrow">Tonight's Card</div>
+    <h2>SIX ROUNDS. NO FILLER.</h2>
+    <p>Every service on the card earns its spot. Pull a screen down and watch the round.</p>
+  </div>
+  <div class="pullhint">▼ GRAB A CORD — THE SCREENS PULL DOWN ▼</div>
+
+  <div class="rounds" id="rounds">
+
+    <div class="round" data-round="1">
+      <div class="roller"><i></i><b>Round 1</b><i></i></div>
+      <div class="screenwrap">
+        <div class="canvasscreen">
+          <div class="screeninner">
+            <div class="slot">
+              <!-- CLIP SLOT: drop rounds/round-1.mp4 in the repo and uncomment -->
+              <!-- <video controls playsinline preload="none" poster="rounds/round-1-poster.jpg"><source src="rounds/round-1.mp4" type="video/mp4"></video> -->
+              <div class="poster"><span class="slab">THE STANCE</span><small>FEATURE PRESENTATION — COMING TO THIS SCREEN</small></div>
+            </div>
+            <div class="rnum">Round One</div>
+            <h3>The Stance</h3>
+            <p>Brand, name, and position — planted before the first bell. Who you are, said so a customer repeats it.</p>
+          </div>
+        </div>
+      </div>
+      <button class="cord" aria-label="Pull down the Round 1 screen"></button>
+      <div class="cordlabel">PULL</div>
+    </div>
+
+    <div class="round" data-round="2">
+      <div class="roller"><i></i><b>Round 2</b><i></i></div>
+      <div class="screenwrap">
+        <div class="canvasscreen">
+          <div class="screeninner">
+            <div class="slot">
+              <!-- CLIP SLOT: drop rounds/round-2.mp4 in the repo and uncomment -->
+              <div class="poster"><span class="slab">THE JAB</span><small>FEATURE PRESENTATION — COMING TO THIS SCREEN</small></div>
+            </div>
+            <div class="rnum">Round Two</div>
+            <h3>The Jab</h3>
+            <p>The website. Fast, honest HTML on your own domain. It answers first, by name, with the phone number attached.</p>
+          </div>
+        </div>
+      </div>
+      <button class="cord" aria-label="Pull down the Round 2 screen"></button>
+      <div class="cordlabel">PULL</div>
+    </div>
+
+    <div class="round" data-round="3">
+      <div class="roller"><i></i><b>Round 3</b><i></i></div>
+      <div class="screenwrap">
+        <div class="canvasscreen">
+          <div class="screeninner">
+            <div class="slot">
+              <div class="poster"><span class="slab">THE CORNER</span><small>FEATURE PRESENTATION — COMING TO THIS SCREEN</small></div>
+            </div>
+            <div class="rnum">Round Three</div>
+            <h3>The Corner</h3>
+            <p>Google Business Profile, maps, reviews — your corner crew working between rounds so the next customer finds you open.</p>
+          </div>
+        </div>
+      </div>
+      <button class="cord" aria-label="Pull down the Round 3 screen"></button>
+      <div class="cordlabel">PULL</div>
+    </div>
+
+    <div class="round" data-round="4">
+      <div class="roller"><i></i><b>Round 4</b><i></i></div>
+      <div class="screenwrap">
+        <div class="canvasscreen">
+          <div class="screeninner">
+            <div class="slot">
+              <div class="poster"><span class="slab">THE COMBO</span><small>FEATURE PRESENTATION — COMING TO THIS SCREEN</small></div>
+            </div>
+            <div class="rnum">Round Four</div>
+            <h3>The Combo</h3>
+            <p>Campaigns across the platforms that matter for your trade — sequenced, seasonal, thrown together so they land together.</p>
+          </div>
+        </div>
+      </div>
+      <button class="cord" aria-label="Pull down the Round 4 screen"></button>
+      <div class="cordlabel">PULL</div>
+    </div>
+
+    <div class="round" data-round="5">
+      <div class="roller"><i></i><b>Round 5</b><i></i></div>
+      <div class="screenwrap">
+        <div class="canvasscreen">
+          <div class="screeninner">
+            <div class="slot">
+              <div class="poster"><span class="slab">THE PRESSURE</span><small>FEATURE PRESENTATION — COMING TO THIS SCREEN</small></div>
+            </div>
+            <div class="rnum">Round Five</div>
+            <h3>The Pressure</h3>
+            <p>Pricing tools and live estimators on your site that turn a nervous visitor into a prepared caller. Dread becomes play.</p>
+          </div>
+        </div>
+      </div>
+      <button class="cord" aria-label="Pull down the Round 5 screen"></button>
+      <div class="cordlabel">PULL</div>
+    </div>
+
+    <div class="round" data-round="6">
+      <div class="roller"><i></i><b>Round 6</b><i></i></div>
+      <div class="screenwrap">
+        <div class="canvasscreen">
+          <div class="screeninner">
+            <div class="slot">
+              <div class="poster"><span class="slab">THE BELL</span><small>FEATURE PRESENTATION — COMING TO THIS SCREEN</small></div>
+            </div>
+            <div class="rnum">Round Six</div>
+            <h3>The Bell</h3>
+            <p>The phone rings. That's the whole scorecard. Everything on this card exists to make that bell ring more often.</p>
+          </div>
+        </div>
+      </div>
+      <button class="cord" aria-label="Pull down the Round 6 screen"></button>
+      <div class="cordlabel">PULL</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MAIN EVENTS ============ -->
+<section class="events">
+  <div class="cardhead">
+    <div class="eyebrow">Main Events</div>
+    <h2>ON THE RECORD</h2>
+    <p>Live sites. Real trades. Look them up — they're open right now.</p>
+  </div>
+  <div class="bouts">
+    <a class="bout" href="https://westoproofleaks561.com" target="_blank" rel="noopener">
+      <div><div class="name">WeStopRoofLeaks561.com</div><div class="trade">Roofing — West Palm Beach</div></div>
+      <div class="result">LIVE · W</div>
+    </a>
+    <a class="bout" href="https://bokdesignbuild.com" target="_blank" rel="noopener">
+      <div><div class="name">BOK Design Build</div><div class="trade">Outdoor Kitchens &amp; Pergolas — South Florida</div></div>
+      <div class="result">LIVE · W</div>
+    </a>
+    <div class="bout">
+      <div><div class="name">Miami Midnight Mattress</div><div class="trade">Mattress Retail — Built in one night</div></div>
+      <div class="result">STAGED · W</div>
+    </div>
+    <div class="bout">
+      <div><div class="name">EPOXY561</div><div class="trade">Epoxy Flooring — The House Brand</div></div>
+      <div class="result">LIVE · W</div>
+    </div>
+    <div class="bout">
+      <div><div class="name">Palm Beach Backyard Kitchens</div><div class="trade">Outdoor Living — Matchmaker Model</div></div>
+      <div class="result">LIVE · W</div>
+    </div>
+    <div class="bout next">
+      <div><div class="name">Your Business Here</div><div class="trade">Next on the card</div></div>
+      <div class="result">TBD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PROMOTER ============ -->
+<section class="promoter">
+  <div class="inner">
+    <h2>THE PROMOTER</h2>
+    <p>Brooklyn-born. Kitchen-trained. Construction-proven. The man in your corner spent twenty years building real things with his hands before he started building them on screens — floors, kitchens, storefronts, brands. He doesn't pitch. He shows up with the finished thing and lets you decide.</p>
+    <p class="creed">"Your customers owe you a phone call.<br>We make them pay it."</p>
+  </div>
+</section>
+
+<!-- ============ THE TICKET ============ -->
+<section class="ticket">
+  <div class="stub">
+    <div class="admit">★ Admit One ★</div>
+    <h2>GET ON THE CARD</h2>
+    <a class="phone" href="tel:5612942677">561-294-2677</a>
+    <div class="or">or <a class="sms" href="sms:5612942677?&body=RING%20MAN%20%E2%80%94%20get%20me%20on%20the%20card">TEXT "RING MAN"</a> — we answer like it's fight night</div>
+    <div class="fine">No refunds on greatness</div>
+  </div>
+</section>
+
+<footer>
+  RING MAN MARKETING · WEST PALM BEACH, FLORIDA · <a href="tel:5612942677">561-294-2677</a><br>
+  MAIN EVENTS BOOKING NOW
+</footer>
+
+<script>
+/* ============ STARS ============ */
+(function(){
+  const wrap=document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('i');
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*70+'%';
+    s.style.animationDelay=(Math.random()*4)+'s';
+    wrap.appendChild(s);
+  }
+})();
+
+/* ============ THE BELL — pure Web Audio, two strikes ============ */
+(function(){
+  let ctx=null;
+  function strike(t){
+    const partials=[520,1240,2100,3150];
+    partials.forEach((f,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='sine';o.frequency.value=f*(1+(Math.random()*.004-.002));
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.22/(i+1),t+0.008);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+1.6-i*0.15);
+      o.connect(g);g.connect(ctx.destination);
+      o.start(t);o.stop(t+1.8);
+    });
+    const n=ctx.createOscillator(),ng=ctx.createGain();
+    n.type='triangle';n.frequency.value=3200;
+    ng.gain.setValueAtTime(0.15,t);
+    ng.gain.exponentialRampToValueAtTime(0.0001,t+0.06);
+    n.connect(ng);ng.connect(ctx.destination);
+    n.start(t);n.stop(t+0.08);
+  }
+  document.getElementById('bell').addEventListener('click',function(){
+    if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();
+    if(ctx.state==='suspended')ctx.resume();
+    const t=ctx.currentTime;
+    strike(t);strike(t+0.55);
+  });
+})();
+
+/* ============ PULL-DOWN SCREENS — spring physics ============ */
+/* Canvas on a roller: pull the cord, screen drops, overshoots, settles. */
+(function(){
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function springDown(el,onDone){
+    /* spring: stiffness/damping tuned for one visible overshoot then settle */
+    const stiffness=170, damping=13, mass=1;
+    let x=0.04, v=0, target=1, last=null;
+    function frame(ts){
+      if(last===null)last=ts;
+      let dt=(ts-last)/1000; last=ts;
+      if(dt>0.05)dt=0.05;
+      const F=-stiffness*(x-target)-damping*v;
+      v+=(F/mass)*dt;
+      x+=v*dt;
+      el.style.transform='scaleY('+x+')';
+      if(Math.abs(x-target)<0.001&&Math.abs(v)<0.001){
+        el.style.transform='scaleY(1)';
+        if(onDone)onDone();
+        return;
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  document.querySelectorAll('.round').forEach(function(round){
+    const cord=round.querySelector('.cord');
+    const screen=round.querySelector('.canvasscreen');
+    function open(){
+      if(round.classList.contains('open'))return;
+      round.classList.add('open');
+      if(reduced){
+        screen.style.transform='scaleY(1)';
+      }else{
+        springDown(screen);
+      }
+    }
+    cord.addEventListener('click',open);
+  });
+})();
+</script>
+</body>
+</html>
